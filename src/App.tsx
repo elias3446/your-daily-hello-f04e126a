@@ -18,6 +18,7 @@ import UsersPage from "@/components/Users/UsersPage";
 import AuditPage from "@/components/Audit/AuditPage";
 import TicketsPage from "@/components/Tickets/TicketsPage";
 import CategoriesPage from "@/components/Categories/CategoriesPage";
+import AgentsPage from "@/components/Agents/AgentsPage";
 import Index from "@/pages/Index";
 import NotFound from "./pages/NotFound.tsx";
 
