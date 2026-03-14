@@ -126,7 +126,7 @@ export default function TicketFormDialog({ open, onClose, editTicket }: TicketFo
               <SelectTrigger><SelectValue placeholder="Sin asignar" /></SelectTrigger>
               <SelectContent>
                 <SelectItem value="unassigned">Sin asignar</SelectItem>
-                {users.map(u => <SelectItem key={u.id} value={u.id}>{u.fullName}</SelectItem>)}
+                {agents.map(u => <SelectItem key={u.id} value={u.id}>{u.fullName}</SelectItem>)}
               </SelectContent>
             </Select>
           </div>
