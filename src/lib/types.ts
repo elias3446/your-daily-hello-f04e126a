@@ -18,6 +18,8 @@ export type Permission =
   | 'tickets.assign'
   | 'tickets.edit'
   | 'tickets.close'
+  | 'agents.view'
+  | 'agents.manage'
   | 'reports.view'
   | 'reports.export'
   | 'settings.view'
