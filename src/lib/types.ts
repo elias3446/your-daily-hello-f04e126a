@@ -118,6 +118,7 @@ export const ALL_PERMISSIONS: Permission[] = [
   'roles.view', 'roles.create', 'roles.edit', 'roles.delete',
   'categories.view', 'categories.create', 'categories.edit', 'categories.delete',
   'tickets.view', 'tickets.create', 'tickets.assign', 'tickets.edit', 'tickets.close',
+  'agents.view', 'agents.manage',
   'reports.view', 'reports.export',
   'settings.view', 'settings.edit',
   'audit.view',
