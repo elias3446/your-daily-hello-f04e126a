@@ -109,9 +109,21 @@ export function CategoriesProvider({ children }: { children: React.ReactNode }) 
     const all = getCategories();
     const idx = all.findIndex(c => c.id === id);
     if (idx === -1) return;
-    all[idx] = { ...all[idx], isActive: !all[idx].isActive, updatedAt: new Date().toISOString() };
+    const newActive = !all[idx].isActive;
+    const now = new Date().toISOString();
+    all[idx] = { ...all[idx], isActive: newActive, updatedAt: now };
+
+    // If toggling a parent category, propagate to all subcategories
+    if (!all[idx].parentId) {
+      all.forEach((c, i) => {
+        if (c.parentId === id) {
+          all[i] = { ...all[i], isActive: newActive, updatedAt: now };
+        }
+      });
+    }
+
     persist(all);
-    audit('TOGGLE_CATEGORY', id, `Categoría ${all[idx].isActive ? 'activada' : 'desactivada'}: ${all[idx].name}`);
+    audit('TOGGLE_CATEGORY', id, `Categoría ${newActive ? 'activada' : 'desactivada'}: ${all[idx].name}`);
   }, []);
 
   const getCategoryById = useCallback((id: string) => {
