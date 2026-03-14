@@ -2,7 +2,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/button';
 import {
-  Shield, Users, Tag, Ticket, BarChart3, Settings, ScrollText, LogOut, ChevronRight, Layers,
+  Shield, Users, Tag, Ticket, BarChart3, Settings, ScrollText, LogOut, ChevronRight, Layers, Headset,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
