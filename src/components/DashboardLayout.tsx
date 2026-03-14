@@ -2,7 +2,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/button';
 import {
-  Shield, Users, Tag, Ticket, BarChart3, Settings, ScrollText, LogOut, ChevronRight, Layers,
+  Shield, Users, Tag, Ticket, BarChart3, Settings, ScrollText, LogOut, ChevronRight, Layers, Headset,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -12,6 +12,7 @@ const navItems = [
   { to: '/dashboard/roles', icon: Tag, label: 'Roles y Permisos' },
   { to: '/dashboard/categories', icon: Layers, label: 'Categorías' },
   { to: '/dashboard/tickets', icon: Ticket, label: 'Tickets' },
+  { to: '/dashboard/agents', icon: Headset, label: 'Agentes' },
   { to: '/dashboard/audit', icon: ScrollText, label: 'Auditoría' },
   { to: '/dashboard/settings', icon: Settings, label: 'Configuración' },
 ];

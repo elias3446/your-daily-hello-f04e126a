@@ -18,6 +18,8 @@ export type Permission =
   | 'tickets.assign'
   | 'tickets.edit'
   | 'tickets.close'
+  | 'agents.view'
+  | 'agents.manage'
   | 'reports.view'
   | 'reports.export'
   | 'settings.view'
@@ -72,7 +74,7 @@ export interface Category {
 }
 
 export type TicketPriority = 'low' | 'medium' | 'high' | 'critical';
-export type TicketStatus = 'open' | 'in_progress' | 'resolved' | 'closed';
+export type TicketStatus = 'open' | 'in_progress' | 'resolved' | 'rejected' | 'closed';
 
 export interface Ticket {
   id: string;
@@ -107,6 +109,7 @@ export const TICKET_STATUS_LABELS: Record<TicketStatus, string> = {
   open: 'Abierto',
   in_progress: 'En progreso',
   resolved: 'Resuelto',
+  rejected: 'Rechazado',
   closed: 'Cerrado',
 };
 
@@ -115,6 +118,7 @@ export const ALL_PERMISSIONS: Permission[] = [
   'roles.view', 'roles.create', 'roles.edit', 'roles.delete',
   'categories.view', 'categories.create', 'categories.edit', 'categories.delete',
   'tickets.view', 'tickets.create', 'tickets.assign', 'tickets.edit', 'tickets.close',
+  'agents.view', 'agents.manage',
   'reports.view', 'reports.export',
   'settings.view', 'settings.edit',
   'audit.view',
@@ -138,6 +142,8 @@ export const PERMISSION_LABELS: Record<Permission, string> = {
   'tickets.assign': 'Asignar tickets',
   'tickets.edit': 'Editar tickets',
   'tickets.close': 'Cerrar tickets',
+  'agents.view': 'Ver agentes',
+  'agents.manage': 'Gestionar agentes',
   'reports.view': 'Ver reportes',
   'reports.export': 'Exportar reportes',
   'settings.view': 'Ver configuración',
@@ -150,6 +156,7 @@ export const PERMISSION_GROUPS: Record<string, Permission[]> = {
   'Roles': ['roles.view', 'roles.create', 'roles.edit', 'roles.delete'],
   'Categorías': ['categories.view', 'categories.create', 'categories.edit', 'categories.delete'],
   'Tickets': ['tickets.view', 'tickets.create', 'tickets.assign', 'tickets.edit', 'tickets.close'],
+  'Agentes': ['agents.view', 'agents.manage'],
   'Reportes': ['reports.view', 'reports.export'],
   'Configuración': ['settings.view', 'settings.edit'],
   'Auditoría': ['audit.view'],

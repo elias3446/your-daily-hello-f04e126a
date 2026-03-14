@@ -7,7 +7,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Ticket, TICKET_PRIORITY_LABELS, TicketPriority } from '@/lib/types';
 import { useTicketForm } from '@/hooks/Tickets/useTicketForm';
-import { getUsers } from '@/lib/storage';
+import { getUsers, getUserPermissions } from '@/lib/storage';
 import { useCategories } from '@/contexts/CategoriesContext';
 import { ticketStyles as s } from '@/styles/Tickets/tickets.styles';
 import { getIconByName } from '@/components/Categories/categoryIcons';
@@ -20,7 +20,10 @@ interface TicketFormDialogProps {
 
 export default function TicketFormDialog({ open, onClose, editTicket }: TicketFormDialogProps) {
   const { form, setField, reset, loadTicket, handleCreate, handleUpdate } = useTicketForm(onClose);
-  const users = getUsers().filter(u => !u.isDeleted && u.isActive);
+  const agents = getUsers().filter(u => !u.isDeleted && u.isActive).filter(u => {
+    const perms = getUserPermissions(u.id);
+    return perms.some(p => p.startsWith('tickets.'));
+  });
   const { categories, getSubcategories } = useCategories();
   const parentCategories = categories.filter(c => c.isActive && !c.parentId);
   const isEdit = !!editTicket;
@@ -123,7 +126,7 @@ export default function TicketFormDialog({ open, onClose, editTicket }: TicketFo
               <SelectTrigger><SelectValue placeholder="Sin asignar" /></SelectTrigger>
               <SelectContent>
                 <SelectItem value="unassigned">Sin asignar</SelectItem>
-                {users.map(u => <SelectItem key={u.id} value={u.id}>{u.fullName}</SelectItem>)}
+                {agents.map(u => <SelectItem key={u.id} value={u.id}>{u.fullName}</SelectItem>)}
               </SelectContent>
             </Select>
           </div>
