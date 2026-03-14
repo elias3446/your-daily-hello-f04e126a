@@ -63,7 +63,7 @@ export default function CategoryFormDialog({ open, onClose, editCategory }: Cate
     setShowSubForm(false);
   }, [open, editCategory]);
 
-  const isParentCategory = true;
+  const isParentCategory = !editCategory?.parentId;
 
   const addSubcategory = () => {
     setSubcategories(prev => [...prev, {
