@@ -107,6 +107,7 @@ export const TICKET_STATUS_LABELS: Record<TicketStatus, string> = {
   open: 'Abierto',
   in_progress: 'En progreso',
   resolved: 'Resuelto',
+  rejected: 'Rechazado',
   closed: 'Cerrado',
 };
 
