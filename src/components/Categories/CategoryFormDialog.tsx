@@ -63,7 +63,7 @@ export default function CategoryFormDialog({ open, onClose, editCategory }: Cate
     setShowSubForm(false);
   }, [open, editCategory]);
 
-  const isParentCategory = true;
+  const isParentCategory = !editCategory?.parentId;
 
   const addSubcategory = () => {
     setSubcategories(prev => [...prev, {
@@ -159,7 +159,7 @@ export default function CategoryFormDialog({ open, onClose, editCategory }: Cate
     <Dialog open={open} onOpenChange={v => !v && onClose()}>
       <DialogContent className="sm:max-w-2xl max-h-[85vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle>{isEdit ? 'Editar Categoría' : 'Nueva Categoría'}</DialogTitle>
+          <DialogTitle>{isEdit ? (isParentCategory ? 'Editar Categoría' : 'Editar Subcategoría') : 'Nueva Categoría'}</DialogTitle>
         </DialogHeader>
         <form onSubmit={onSubmit} className={s.form}>
           {/* Main category fields */}
