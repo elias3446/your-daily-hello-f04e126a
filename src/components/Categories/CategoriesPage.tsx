@@ -221,7 +221,25 @@ export default function CategoriesPage() {
                             <TableCell className={s.tableCellMuted}>
                               {new Date(sub.createdAt).toLocaleDateString('es-MX', { day: '2-digit', month: 'short' })}
                             </TableCell>
-                            <TableCell />
+                            <TableCell className="text-right">
+                              <div className="flex justify-end gap-1">
+                                {canEdit && (
+                                  <>
+                                    <Button variant="ghost" size="icon" className="h-8 w-8" onClick={() => toggleActive(sub.id)} title={sub.isActive ? 'Desactivar' : 'Activar'}>
+                                      <Power className="h-4 w-4" />
+                                    </Button>
+                                    <Button variant="ghost" size="icon" className="h-8 w-8" onClick={() => handleEdit(sub)}>
+                                      <Pencil className="h-4 w-4" />
+                                    </Button>
+                                  </>
+                                )}
+                                {canDelete && (
+                                  <Button variant="ghost" size="icon" className="h-8 w-8 text-destructive" onClick={() => deleteCategory(sub.id)}>
+                                    <Trash2 className="h-4 w-4" />
+                                  </Button>
+                                )}
+                              </div>
+                            </TableCell>
                           </TableRow>
                         );
                       })}
