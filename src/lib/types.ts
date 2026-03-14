@@ -72,7 +72,7 @@ export interface Category {
 }
 
 export type TicketPriority = 'low' | 'medium' | 'high' | 'critical';
-export type TicketStatus = 'open' | 'in_progress' | 'resolved' | 'closed';
+export type TicketStatus = 'open' | 'in_progress' | 'resolved' | 'rejected' | 'closed';
 
 export interface Ticket {
   id: string;
