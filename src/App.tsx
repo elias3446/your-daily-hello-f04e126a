@@ -87,6 +87,14 @@ const App = () => (
                     </ProtectedRoute>
                   }
                 />
+                <Route
+                  path="/dashboard/agents"
+                  element={
+                    <ProtectedRoute permission="agents.view">
+                      <DashboardLayout><AgentsPage /></DashboardLayout>
+                    </ProtectedRoute>
+                  }
+                />
                 <Route path="*" element={<NotFound />} />
               </Routes>
               </TicketsProvider>

@@ -12,6 +12,7 @@ const navItems = [
   { to: '/dashboard/roles', icon: Tag, label: 'Roles y Permisos' },
   { to: '/dashboard/categories', icon: Layers, label: 'Categorías' },
   { to: '/dashboard/tickets', icon: Ticket, label: 'Tickets' },
+  { to: '/dashboard/agents', icon: Headset, label: 'Agentes' },
   { to: '/dashboard/audit', icon: ScrollText, label: 'Auditoría' },
   { to: '/dashboard/settings', icon: Settings, label: 'Configuración' },
 ];
