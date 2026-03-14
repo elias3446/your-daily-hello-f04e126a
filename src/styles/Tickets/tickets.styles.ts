@@ -20,6 +20,7 @@ export const ticketStyles = {
     open: 'inline-flex items-center rounded-full bg-accent/10 px-2 py-0.5 text-xs font-semibold text-accent',
     in_progress: 'inline-flex items-center rounded-full bg-warning/10 px-2 py-0.5 text-xs font-semibold text-warning',
     resolved: 'inline-flex items-center rounded-full bg-success/10 px-2 py-0.5 text-xs font-semibold text-success',
+    rejected: 'inline-flex items-center rounded-full bg-destructive/10 px-2 py-0.5 text-xs font-semibold text-destructive',
     closed: 'inline-flex items-center rounded-full bg-muted px-2 py-0.5 text-xs font-semibold text-muted-foreground',
   } as Record<string, string>,
 
