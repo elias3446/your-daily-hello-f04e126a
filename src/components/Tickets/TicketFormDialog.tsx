@@ -20,7 +20,10 @@ interface TicketFormDialogProps {
 
 export default function TicketFormDialog({ open, onClose, editTicket }: TicketFormDialogProps) {
   const { form, setField, reset, loadTicket, handleCreate, handleUpdate } = useTicketForm(onClose);
-  const users = getUsers().filter(u => !u.isDeleted && u.isActive);
+  const agents = getUsers().filter(u => !u.isDeleted && u.isActive).filter(u => {
+    const perms = getUserPermissions(u.id);
+    return perms.some(p => p.startsWith('tickets.'));
+  });
   const { categories, getSubcategories } = useCategories();
   const parentCategories = categories.filter(c => c.isActive && !c.parentId);
   const isEdit = !!editTicket;
